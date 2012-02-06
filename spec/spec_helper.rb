@@ -6,6 +6,14 @@ require 'factory_girl'
 require 'rexml/document'
 FactoryGirl.find_definitions
 
+require 'simplecov'
+
+SimpleCov.formatter = SimpleCov::Formatter::HTMLFormatter
+SimpleCov.start('rails') if ENV["COVERAGE"]
+SimpleCov.at_exit do
+    SimpleCov.result.format!
+end
+
 User
 class User
   alias real_send_create_notification send_create_notification

@@ -273,7 +273,6 @@ describe Admin::ContentController do
     it 'should send notifications on create' do
       begin
         u = Factory(:user, :notify_via_email => true, :notify_on_new_articles => true)
-        u.save!
         ActionMailer::Base.perform_deliveries = true
         ActionMailer::Base.deliveries = []
         emails = ActionMailer::Base.deliveries
