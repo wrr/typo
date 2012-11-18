@@ -11,18 +11,18 @@ iframe.ie6_blocker {
   z-index: 999;
 }
 
-.calendar_date_select thead th {
+.calendar_date_select  thead th {
   font-weight:bold;
-  background-color: #aaa;
+  background-color: #000;
   border-top:1px solid #777;
-  border-bottom:1px solid #777;
+  border-bottom:2px solid #334;
   color: white !important;
 }
 
 .calendar_date_select .cds_buttons {
   text-align:center;
   padding:5px 0px;
-  background-color: #555;
+  background-color: #000055;
 }
 
 .calendar_date_select .cds_footer {
@@ -66,6 +66,7 @@ iframe.ie6_blocker {
 .calendar_date_select .cds_header a.prev {
   float:left;
 }
+
 .calendar_date_select .cds_header a.next {
   float:right;
 }
@@ -75,6 +76,7 @@ iframe.ie6_blocker {
   display:none;
 }
 
+
 .calendar_date_select .cds_header select.month {
   width:90px;
 }
@@ -82,52 +84,45 @@ iframe.ie6_blocker {
 .calendar_date_select .cds_header select.year {
   width:61px;
 }
+
 .calendar_date_select .cds_buttons a {
   color: white;
   font-size: 9px;
 }
 
 .calendar_date_select td {
+  background-color: #000066;
   font-size:12px;
   width: 24px;
   height: 21px;
   text-align:center;
   vertical-align: middle;
-  background-color: #fff;
 }
 .calendar_date_select td.weekend {
-  background-color: #eee;
-  border-left:1px solid #ddd;
-  border-right:1px solid #ddd;
+  background-color: #00005a;
 }
 
-.calendar_date_select td div {
-  color: #000;
-}
 .calendar_date_select td div.other {
-  color: #ccc;
-}
-.calendar_date_select td.selected div {
-  color:white;
+  color: #4C5593;
 }
 
 .calendar_date_select tbody td {
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #000044;
 }
 .calendar_date_select td.selected {
-  background-color:#777;
+  background-color:white;
+  color:black;
 }
 
 .calendar_date_select td:hover {
   background-color:#ccc;
 }
 
-.calendar_date_select td.today {
-  border: 1px dashed #999;
-}
-
 .calendar_date_select td.disabled div {
-  color: #e6e6e6;
+  color: #000044;
+}
+.calendar_date_select td.today {
+  border: 1px dashed blue;
 }
 
 .fieldWithErrors .calendar_date_select {

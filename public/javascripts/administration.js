@@ -15,11 +15,15 @@ function autosave_request(e) {
 
 }
 
-Event.observe(window, 'load', function() {
-  $$('.autosave').each(function(e){autosave_request(e)});
-  $$('#article_form .new_category').each(function(cat_link){ cat_link.observe('click', bind_new_category_overlay); });
-  $$('.merge_link').each(function(merge_link){ merge_link.observe('click', bind_merge_link); });
+$(window).load(function() {
+  $('.autosave').each(function(e){autosave_request(e)});
+  $('#article_form .new_category').each(function(cat_link){ cat_link.click(bind_new_category_overlay); });
+  $('.merge_link').each(function(merge_link){ merge_link.click(bind_merge_link); });
 })
+
+jQuery(document).ready(function($){
+ $("[selector]").datetimeselect();
+});
 
 // UJS for new category link in admin#new_article
 function bind_new_category_overlay(event) {
@@ -38,7 +42,7 @@ function bind_new_category_overlay(event) {
 
 // JS for merging tags links in admin#tags
 function bind_merge_link(e) {
-  var merger = $('tag_merger');
+  var merger = $('#tag_merger');
   if(!merger) { return; }
   merger.hide();
   // Take calling element, then take informations
