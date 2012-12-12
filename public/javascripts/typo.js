@@ -120,7 +120,7 @@ function check_all(checkbox) {
 }
 
 register_onload(function() {
-  if ($('commentform').length > 0) {
+  if ($('#commentform').length > 0) {
     var _author = getCookie('author');
     var _url = getCookie('url');
 

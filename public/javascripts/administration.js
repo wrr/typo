@@ -1,24 +1,23 @@
 function autosave_request(e) {
-  new Form.Observer (e, 30, function(element, value) {
+  var e = $(e);
+  e.observe_field(3, function(element, value) {
 			if ($('current_editor').value == 'visual') {
-				$('article__body_and_extended_editor').value = CKEDITOR.instances.article__body_and_extended_editor.getData();;
+			  $('article__body_and_extended_editor').value = CKEDITOR.instances.article__body_and_extended_editor.getData();;
 			}
 
-      new Ajax.Request(e.action.gsub(/\/new\/{0,1}/, '/autosave/') , {
-                                        asynchronous:true,
-                                        evalScripts:true,
-                                        parameters: Form.serialize(e)
-                                      })
-			var g = new k.Growler({location : 'br'});
-			g.info('Article was successfully saved', {life: 3});
-})
+                        $.ajax(e.parents('form').attr('action').replace(/\/new\/{0,1}/, '/autosave/') , {
+                                        data: e.parents('form').serialize()
+                        });
+                        //var g = new k.Growler({location : 'br'});
+			//g.info('Article was successfully saved', {life: 3});
+  });
 
 }
 
 $(window).load(function() {
-  $('.autosave').each(function(e){autosave_request(e)});
-  $('#article_form .new_category').each(function(cat_link){ cat_link.click(bind_new_category_overlay); });
-  $('.merge_link').each(function(merge_link){ merge_link.click(bind_merge_link); });
+  $('.autosave textarea').each(function(index, e){autosave_request(e)});
+  $('#article_form .new_category').each(function(index, cat_link){ cat_link.click(bind_new_category_overlay); });
+  $('.merge_link').each(function(index, merge_link){ merge_link.click(bind_merge_link); });
 })
 
 jQuery(document).ready(function($){

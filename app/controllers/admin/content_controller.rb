@@ -8,8 +8,8 @@ class Admin::ContentController < Admin::BaseController
   cache_sweeper :blog_sweeper
 
   def auto_complete_for_article_keywords
-    @items = Tag.find_with_char params[:article][:keywords].strip
-    render inline: "<%= raw auto_complete_result @items, 'name' %>"
+    @items = Tag.find_with_char(params[:term].strip).to_json
+    render :jsoninline => "<%= raw auto_complete_result @items, 'name' %>"
   end
 
   def index
