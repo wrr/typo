@@ -6,7 +6,7 @@
   <title><%= this_blog.blog_name %> – <%= controller.controller_name %></title>
   <meta http-equiv="imagetoolbar" content="no" />
   <%= stylesheet_link_tag "bootstrap", "administration_structure", "jquery.lightbox-0.5", "/stylesheets/calendar_date_select/jquery.calendardateselect.css" %>
-  <%= javascript_include_tag "jquery-1.8.2", "jquery-ui-1.9.1.custom.min", "typo", "jquery.lightbox-0.5", "jquery.carousel.min", "jquery.observe_field.js", "administration", "calendar_date_select/jquery/jquery.string.1.0.js", "calendar_date_select/jquery/jquery.calendardateselect.js" %>
+  <%= javascript_include_tag "jquery", "jquery-ui", "typo", "jquery.lightbox-0.5", "jquery.carousel.min", "jquery.observe_field.js", "administration", "calendar_date_select/jquery/jquery.string.1.0.js", "calendar_date_select/jquery/jquery.calendardateselect.js" %>
   <style type="text/css">
     #carousel-content .slide { width: <%= this_blog.image_thumb_size %>; }
   </style>
@@ -17,7 +17,7 @@
       <div class='container-fluid'>
         <%= link_to this_blog.blog_name, this_blog.base_url, { :class => 'brand' } %>
         <ul class='nav push-right'>
-          <li class='dropdown' onmouseover='$("#user_menu").css('display', "block")' onmouseout='$("#user_menu").css("display", "none")'>
+          <li class='dropdown' onmouseover='$("#user_menu").css("display", "block")' onmouseout='$("#user_menu").css("display", "none")'>
             <a class="dropdown-toggle" href="#"><%= _("Logged in as %s", current_user.nickname)%></a>
             <ul class="dropdown-menu" id="user_menu" style='display: none'>
               <li><%= link_to(_("New Article"), {:controller => 'content', :action => 'new'}) %></li>
@@ -26,7 +26,7 @@
             </ul>
           </li>
           <li class='divider-vertical'></li>
-          <li class="dropdown" onmouseover='$("help_menu").style.display = "block"' onmouseout='$("#help_menu").css("display", "none")'>
+          <li class="dropdown" onmouseover='$("#help_menu").css("display", "block");' onmouseout='$("#help_menu").css("display", "none")'>
             <a class="dropdown-toggle" href="#"><%= _("Help")%></a>
             <ul class="dropdown-menu" id="help_menu" style="display: none;">
               <li><%= link_to _("Documentation"), "https://github.com/fdv/typo/wiki" %></li>
