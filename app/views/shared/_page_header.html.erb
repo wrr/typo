@@ -13,6 +13,7 @@
   <link rel="alternate" type="application/rss+xml" title="RSS" href="<%= feed_rss %>" />
 <%- end %>
 <%= javascript_include_tag 'cookies', 'jquery.min', 'typo', :cache => true %>
+<%= javascript_include_tag 'cookies', 'jquery.min', 'jquery-ui.min', 'typo', :cache => true %>
 <%= stylesheet_link_tag 'coderay', 'user-styles', :cache => true %>
 <%= javascript_include_tag "lang/#{Localization.lang.to_s}" if File.exists? File.join(::Rails.root.to_s, 'public', 'lang', Localization.lang.to_s) %>
 <%= javascript_tag "window._token = '#{form_authenticity_token}'"%>
