@@ -81,8 +81,8 @@ module ApplicationHelper
 
   def onhover_show_admin_tools(type, id = nil)
     tag = []
-    tag << %{ onmouseover="if (getCookie('typo_user_profile') == 'admin') { Element.show('admin_#{[type, id].compact.join('_')}'); }" }
-    tag << %{ onmouseout="Element.hide('admin_#{[type, id].compact.join('_')}');" }
+    tag << %{ onmouseover="if (getCookie('typo_user_profile') == 'admin') { $('#admin_#{[type, id].compact.join('_')}').show(); }" }
+    tag << %{ onmouseout="$('#admin_#{[type, id].compact.join('_')}').hide();" }
     tag
   end
 
