@@ -1,13 +1,6 @@
 <% @page_heading = _('Manage articles') + content_tag(:div, link_to(_("New Article"), {:controller => 'content', :action => 'new'}, :id => 'dialog-link', :class => 'btn btn-info'), :class => 'pull-right') %>
 
-<%= form_remote_tag  \
-  :url      => {:action => 'index'},
-  :method   => :get,
-  :name     => 'article',
-  :update   => {:success => 'articleList'},
-  :before   => "Element.show('spinner')",
-  :complete => "Element.hide('spinner')" \
-  do %>
+<%= form_tag({:action => 'index'}, {:method => :get, :id => 'article_list_form', :remote => true}) do %>
 
 <table class="table table-striped">
   <thead>
@@ -46,3 +39,14 @@
   </tbody>
 </table>
 <%end%>
+<%= javascript_tag do %>
+ $("#article_list_form").on('ajax:before', function(evt, status, data, xhr) {
+   $('#spinner').show();
+ });
+ $("#article_list_form").on('ajax:complete', function(evt, status, data, xhr) {
+   $('#spinner').hide();
+ });
+ $("#article_list_form").on('ajax:success', function(evt, data, status, xhr) {
+   $('#articleList').replaceWith(data);
+ });
+<%- end -%>
