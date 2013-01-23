@@ -4,7 +4,8 @@ dbfile = File.expand_path("../config/database.yml", __FILE__)
 unless File.exists?(dbfile)
   raise "You need to configure config/database.yml first"
 else
-  conf = YAML.load(File.read(dbfile))
+  require 'erb'
+  conf = YAML.load(ERB.new(File.read(dbfile)).result)
   environment = conf[env]
   adapter = environment['adapter'] if environment
   raise "You need define an adapter in your database.yml or set your RAILS_ENV variable" if adapter == '' || adapter.nil?
