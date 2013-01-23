@@ -1,8 +1,6 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
-ruby '1.9.3'
-gem 'rails', '3.2.11'
 
 # Auto-require default libraries and those for the current Rails environment.
 Bundler.require :default, Rails.env
