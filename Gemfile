@@ -1,27 +1,7 @@
-env = ENV["RAILS_ENV"] || 'development'
-dbfile = File.expand_path("../config/database.yml", __FILE__)
+source "https://rubygems.org"
+ruby "1.9.3"
 
-unless File.exists?(dbfile)
-  raise "You need to configure config/database.yml first"
-else
-  require 'erb'
-  conf = YAML.load(ERB.new(File.read(dbfile)).result)
-  environment = conf[env]
-  adapter = environment['adapter'] if environment
-  raise "You need define an adapter in your database.yml or set your RAILS_ENV variable" if adapter == '' || adapter.nil?
-  case adapter
-  when 'sqlite3'
-    gem 'sqlite3'
-  when 'postgresql'
-    gem 'pg'
-  when 'mysql2'
-    gem 'mysql2'
-  else
-    raise "Don't know what gem to use for adapter #{adapter}"
-  end
-end
-
-source :rubygems
+gem 'pg'
 
 gem 'rails', '~> 3.2.11'
 gem 'require_relative'
@@ -54,3 +34,5 @@ group :development, :test do
   gem 'rspec-rails', '~> 2.12.0'
   gem 'simplecov', :require => false
 end
+
+gem 'thin'
