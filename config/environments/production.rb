@@ -28,4 +28,5 @@ TypoBlog::Application.configure do
   # config.threadsafe!
 
   Migrator.offer_migration_when_available            = true
+  config.middleware.insert 0, "Rack::WWWhisper"
 end

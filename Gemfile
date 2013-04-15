@@ -36,3 +36,5 @@ group :development, :test do
 end
 
 gem 'thin'
+
+gem 'rack-wwwhisper', '~> 1.0'
